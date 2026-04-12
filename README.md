@@ -1,94 +1,82 @@
-<!-- DO NOT EDIT — Auto-generated portfolio README -->
-<div align="center">
-
-![Banner](docs/images/banner.svg)
-
 # 🎯 Habit Tracker Analyzer
 
-A comprehensive habit tracking system with streak computation, completion rate analytics, habit correlation discovery, gamified achievements (6 types), calendar heatmaps, weekly/monthly reports, and AI-powered behavioral analysis.
+A comprehensive habit tracking system with streak computation, completion rate analytics, habit correlation discovery, gamified achievements (6 types), calendar heatmaps, weekly/monthly reports, and AI-powered behavioral analysis — running 100% locally.
 
-[![Gemma 4](https://img.shields.io/badge/Gemma_4-Local_AI-e63946.svg?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/gemma)
-[![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000.svg?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Private](https://img.shields.io/badge/100%25-Private-2ea043.svg?style=for-the-badge&logo=shield&logoColor=white)](#-local-vs-cloud)
-
-[![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B.svg?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
-[![Click](https://img.shields.io/badge/Click-CLI-4EAA25.svg?style=flat-square&logo=gnu-bash&logoColor=white)](https://click.palletsprojects.com)
-[![pytest](https://img.shields.io/badge/pytest-tested-009688.svg?style=flat-square&logo=pytest&logoColor=white)](https://pytest.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/kennedyraju55/habit-tracker-analyzer/pulls)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)]()
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)]()
-
----
-
-[Features](#-features) •
-[Quick Start](#-quick-start) •
-[CLI Reference](#-cli-reference) •
-[Web UI](#-web-ui) •
-[Architecture](#-architecture) •
-[API Reference](#-api-reference) •
-[Configuration](#%EF%B8%8F-configuration) •
-[Testing](#-testing) •
-[FAQ](#-faq) •
-[Contributing](#-contributing)
-
-</div>
-
----
-
-## 🤔 Why Habit Tracker Analyzer?
-
-| Problem | Solution |
-|---------|----------|
-| Habits don't stick | Streak tracking and achievements provide motivation |
-| No data on consistency | Completion rates show exactly how you're doing |
-| Don't know what works | Correlation analysis reveals habit synergies |
-| Generic habit apps | AI provides personalized behavioral insights |
-| Privacy with habit data | 100% local — your habits stay your business |
+[![Local LLM](https://img.shields.io/badge/Local_LLM-Ollama-000000.svg?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com)
+[![Privacy-First](https://img.shields.io/badge/100%25-Privacy--First-2ea043.svg?style=for-the-badge&logo=shield&logoColor=white)](#privacy-first)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+[![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688.svg?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Web_UI-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 
 ---
 
 ## ✨ Features
 
-![Features](docs/images/features.svg)
+- **🔗 Habit Tracking** - Log daily habit completion with timestamps
+- **🔥 Streak Computation** - Automatic streak calculation and tracking
+- **📊 Analytics** - Completion rates, trends, and performance metrics
+- **🎯 Habit Correlation** - Discover which habits support each other
+- **🏆 Gamification** - 6 achievement types for motivation
+- **📅 Calendar Heatmap** - Visual representation of your habit consistency
+- **📈 Reports** - Weekly and monthly behavioral analysis
+- **🤖 AI Analysis** - Personalized insights on your habit patterns
+- **🔒 100% Local** - All habit data stays private on your machine
+- **🎨 Web UI & API** - Web dashboard, CLI, or REST endpoints
 
-<table>
-<tr>
-<td width="50%">
+---
 
-### Streak Tracking
-Current and best streak computation for every habit
+## 🏗️ Architecture
 
-### Completion Rates
-Percentage-based tracking over configurable time periods
+```
+┌─────────────────┐
+│  Habit Input    │
+│ (Web/CLI/API)   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Habit Engine   │
+│ - Tracking      │
+│ - Correlation   │
+│ - Scoring       │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Local LLM      │
+│ (Ollama/Gemma)  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Insights &     │
+│  Reports        │
+└─────────────────┘
+```
 
-</td>
-<td width="50%">
+---
 
-### Habit Correlations
-Discover which habits you tend to do together
+## 📋 Project Structure
 
-### Achievements System
-6 gamified achievements: First Step 🌱 to Consistency King 👑
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### Calendar Heatmap
-Date-based completion data for visual heatmap rendering
-
-</td>
-<td width="50%">
-
-### AI Analysis
-Behavioral science insights with habit stacking suggestions
-
-</td>
-</tr>
-</table>
+```
+habit-tracker-analyzer/
+├── src/habit_tracker/
+│   ├── __init__.py              # Package initialization
+│   ├── core.py                  # Habit tracking logic
+│   ├── analytics.py             # Streak & correlation analysis
+│   ├── achievements.py          # Gamification system
+│   ├── cli.py                   # Click CLI interface
+│   ├── api.py                   # FastAPI endpoints
+│   └── web_ui.py                # Streamlit dashboard
+├── tests/
+│   ├── test_core.py             # Unit tests
+│   └── __init__.py
+├── config.yaml                  # Configuration
+├── requirements.txt             # Dependencies
+├── docker-compose.yml           # Docker setup
+└── README.md                    # This file
+```
 
 ---
 
@@ -96,305 +84,141 @@ Behavioral science insights with habit stacking suggestions
 
 ### Prerequisites
 
-| Requirement | Version | Purpose |
-|-------------|---------|---------|
-| Python | 3.11+ | Runtime |
-| Ollama | Latest | Local LLM server |
-| Gemma 4 | Via Ollama | AI model |
+- **Python 3.11+**
+- **Ollama** (for local LLM)
+- **Gemma 4 model** (via Ollama)
 
 ### Installation
 
 ```bash
-# 1. Clone the repository
+# Clone the repository
 git clone https://github.com/kennedyraju55/habit-tracker-analyzer.git
 cd habit-tracker-analyzer
 
-# 2. Create virtual environment
+# Create and activate virtual environment
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 4. Pull the AI model
-ollama pull gemma3
+# Pull the AI model
+ollama pull gemma4
 
-# 5. Verify setup
+# Verify installation
 python -m habit_tracker.cli --help
 ```
 
 ### First Run
 
 ```bash
-# Start Ollama (if not running)
+# Start Ollama
 ollama serve &
 
-# Run your first command
-python -m habit_tracker.cli log --habit 'Exercise' --notes 'Morning run 5km'
-```
+# Create a new habit
+python -m habit_tracker.cli add-habit --name "Daily Exercise" --category health
 
-<details>
-<summary><strong>📋 Example Output</strong></summary>
+# Log completion
+python -m habit_tracker.cli log --habit "Daily Exercise"
 
-```
-🎯 Habit Tracker Analyzer v1.0.0
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✓ Connected to Ollama (Gemma 4)
-✓ Processing...
-✓ Done! Results displayed below.
-```
+# View your dashboard
+streamlit run src/habit_tracker/web_ui.py
 
-</details>
-
-
-## 🐳 Docker Deployment
-
-Run this project instantly with Docker — no local Python setup needed!
-
-### Quick Start with Docker
-
-```bash
-# Clone and start
-git clone https://github.com/kennedyraju55/habit-tracker-analyzer.git
-cd habit-tracker-analyzer
-docker compose up
-
-# Access the web UI
-open http://localhost:8501
-```
-
-### Docker Commands
-
-| Command | Description |
-|---------|-------------|
-| `docker compose up` | Start app + Ollama |
-| `docker compose up -d` | Start in background |
-| `docker compose down` | Stop all services |
-| `docker compose logs -f` | View live logs |
-| `docker compose build --no-cache` | Rebuild from scratch |
-
-### Architecture
-
-```
-┌─────────────────┐     ┌─────────────────┐
-│   Streamlit UI  │────▶│   Ollama + LLM  │
-│   Port 8501     │     │   Port 11434    │
-└─────────────────┘     └─────────────────┘
-```
-
-> **Note:** First run will download the Gemma 4 model (~5GB). Subsequent starts are instant.
-
----
-
-
----
-
-
----
-
-## ⚡ REST API
-
-Every project includes a FastAPI REST API with auto-generated docs.
-
-### Start the API Server
-
-```bash
-# Run directly
+# Or use REST API
 uvicorn src.habit_tracker.api:app --reload --port 8000
-
-# Or with Docker
-docker compose up
 ```
 
-### API Endpoints
+---
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/health` | Health check |
-| `GET` | `/docs` | Interactive Swagger UI |
-| `GET` | `/redoc` | ReDoc documentation |
-| `POST` | `/analyze` | Main analysis endpoint |
+## 🛠️ Tech Stack
 
-### Example Request
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Runtime** | Python 3.11+ | Core application |
+| **CLI** | Click 8.1+ | Command-line interface |
+| **Web** | Streamlit 1.28+ | Interactive dashboard |
+| **API** | FastAPI | REST endpoints |
+| **LLM** | Ollama + Gemma 4 | Behavioral AI analysis |
+| **Data** | JSON/SQLite | Storage |
+| **Testing** | pytest | Unit tests |
+| **Deployment** | Docker | Container orchestration |
 
-```bash
-curl -X POST http://localhost:8000/analyze \
-  -H "Content-Type: application/json" \
-  -d '{"text": "your input here"}'
-```
+---
 
-> 📖 Visit `http://localhost:8000/docs` for the full interactive API documentation.
-
-## 📟 CLI Reference
-
-All commands are available via the Click-based CLI:
+## 📖 CLI Reference
 
 ```bash
 python -m habit_tracker.cli [COMMAND] [OPTIONS]
 ```
 
-### Commands
+### Available Commands
 
-| Command | Description | Key Options |
-|---------|-------------|-------------|
-| `log` | Log a habit | `--habit 'Exercise' --notes 'Morning run 5km'` |
-| `add` | Add new habit | `--name 'Meditation' --category health --target daily` |
-| `streak` | Show streaks | — |
-| `rate` | Show completion rates | `--days 30` |
-| `report` | Generate report | `--type weekly` |
-| `analyze` | AI habit analysis | `--period month` |
-| `achievements` | Show earned achievements | — |
-| `correlations` | Show habit correlations | — |
-
-### Global Options
-
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--config` | Path to config.yaml | `config.yaml` |
-| `--verbose` / `-v` | Enable debug logging | `false` |
-| `--help` | Show help message | — |
+| Command | Description | Example |
+|---------|-------------|---------|
+| dd-habit | Create new habit | --name "Morning Run" --category health |
+| log | Log habit completion | --habit "Morning Run" |
+| streak | View streak info | --habit "Morning Run" |
+| nalytics | View completion stats | --days 30 |
+| correlations | Find related habits | --habit "Morning Run" |
+| chievements | View unlocked achievements | — |
+| eport | Generate monthly report | --month current |
 
 ---
 
 ## 🌐 Web UI
 
-Launch the Streamlit web interface:
+Launch the interactive dashboard:
 
 ```bash
 streamlit run src/habit_tracker/web_ui.py
 ```
 
-The web UI provides:
-- 🎨 **Interactive dashboard** with rich visualizations
-- 📊 **Real-time results** with formatted output
-- 🔧 **Point-and-click** configuration — no CLI needed
-- 📱 **Responsive design** — works on desktop and mobile
+Access at **http://localhost:8501**
 
-> Access at `http://localhost:8501` after launching.
-
----
-
-## 🏗️ Architecture
-
-![Architecture](docs/images/architecture.svg)
-
-### Project Structure
-
-```
-68-habit-tracker-analyzer/
-├── src/
-│   └── habit_tracker/
-│       ├── __init__.py          # Package initialization
-│       ├── core.py              # Business logic & AI features
-│       ├── cli.py               # Click CLI interface
-│       └── web_ui.py            # Streamlit web interface
-├── data/                        # Data storage (JSON/CSV)
-├── tests/
-│   ├── test_core.py             # Core logic tests
-│   └── test_cli.py              # CLI integration tests
-├── docs/
-│   └── images/                  # SVG documentation images
-├── config.yaml                  # Application configuration
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
-```
-
-### Data Flow
-
-```
-User Input → CLI/Web UI → Core Engine → Local LLM (Ollama/Gemma 4) → Formatted Output
-                              ↓
-                        JSON/CSV Storage
-```
+Features:
+- 📅 Calendar heatmap visualization
+- 🔥 Streak tracking with milestones
+- 📊 Completion rate charts
+- 🎯 Habit correlation insights
+- 🏆 Achievement showcase
+- 📈 Weekly/monthly trends
+- 🤖 AI behavioral analysis
 
 ---
 
-## 📖 API Reference
+## ⚡ REST API
 
-Import and use the core module directly in Python:
+All features via FastAPI endpoints.
 
-```python
-from habit_tracker.core import *
+```bash
+uvicorn src.habit_tracker.api:app --reload --port 8000
 ```
 
-### Log a habit
+Interactive docs: **http://localhost:8000/docs**
 
-```python
-from habit_tracker.core import log_habit
+### API Endpoints
 
-entry = log_habit(
-    habit_name='Exercise',
-    done=True,
-    notes='Morning run - 5km in 28 minutes'
-)
-print(f'Logged: {entry["habit"]} on {entry["date"]}')
-```
-
-### Check streaks
-
-```python
-from habit_tracker.core import load_habits, compute_streaks
-
-data = load_habits()
-streaks = compute_streaks(data)
-for habit, info in streaks.items():
-    print(f'{habit}: {info["current"]} days (best: {info["best"]})')
-```
-
-### Find correlations
-
-```python
-from habit_tracker.core import compute_correlations
-
-correlations = compute_correlations(data)
-for pair, info in correlations.items():
-    print(f'{pair}: {info["rate"]}% co-occurrence')
-```
-
-### Check achievements
-
-```python
-from habit_tracker.core import check_achievements
-
-achievements = check_achievements(data)
-for ach in achievements:
-    print(f'{ach["icon"]} {ach["name"]}: {ach["description"]}')
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /health | Health check |
+| POST | /habits | Create habit |
+| POST | /log | Log completion |
+| GET | /streak/{habit} | Get streak info |
+| GET | /analytics/{habit} | Habit analytics |
+| GET | /correlations | Find habit correlations |
 
 ---
 
-## ⚙️ Configuration
+## 🐳 Docker Deployment
 
-Create a `config.yaml` in the project root:
+```bash
+git clone https://github.com/kennedyraju55/habit-tracker-analyzer.git
+cd habit-tracker-analyzer
 
-```yaml
-llm:
-  model: "gemma3"
-  temperature: 0.6
-  max_tokens: 2000
+docker compose up
 
-habits_file: habits.json
-default_target: daily
-
-achievements:
-  enabled: true
-  notifications: true
-
-reports:
-  weekly: true
-  monthly: true
-
-logging:
-  level: INFO
+# Access at http://localhost:8501
 ```
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `OLLAMA_HOST` | Ollama server URL | `http://localhost:11434` |
-| `LOG_LEVEL` | Logging verbosity | `INFO` |
-| `DATA_DIR` | Data storage directory | `./data` |
 
 ---
 
@@ -407,243 +231,122 @@ pytest tests/ -v
 # Run with coverage
 pytest tests/ --cov=habit_tracker --cov-report=term-missing
 
-# Run specific test file
-pytest tests/test_core.py -v
-
-# Run only unit tests (fast)
-pytest tests/test_core.py -v -k "not integration"
-
-# Generate HTML coverage report
-pytest tests/ --cov=habit_tracker --cov-report=html
-open htmlcov/index.html
+# Run specific test
+pytest tests/test_core.py::test_streak_calculation -v
 ```
 
-### Test Coverage
+---
 
-| Module | Statements | Miss | Coverage | Key Tests |
-|--------|-----------|------|----------|-----------|
-| `core.py` | ~150 | ~22 | 85%+ | Unit tests for all public functions |
-| `cli.py` | ~100 | ~20 | 80%+ | Click runner integration tests |
-| `web_ui.py` | ~80 | ~24 | 70%+ | Streamlit component tests |
-| **Total** | **~330** | **~66** | **80%+** | **Full regression suite** |
+## ⚙️ Configuration
 
-### Writing Tests
+Create a config.yaml:
+
+```yaml
+habits:
+  categories:
+    - health
+    - productivity
+    - learning
+    - personal
+  default_tracking_days: 90
+
+achievements:
+  types:
+    - "Streak Milestone"
+    - "Perfect Week"
+    - "100 Days"
+    - "Consistency"
+    - "Habit Master"
+    - "Synergy"
+
+analytics:
+  track_correlations: true
+  min_correlation_threshold: 0.6
+  heatmap_months: 12
+```
+
+---
+
+## 🏆 Achievement System
+
+Earn 6 types of achievements:
+
+1. **Streak Milestone** - Reach 7, 30, 100 day streaks
+2. **Perfect Week** - 100% completion for 7 days
+3. **100 Days** - Any habit at 100 days
+4. **Consistency** - 95%+ completion over 30 days
+5. **Habit Master** - Track 10+ habits simultaneously
+6. **Synergy** - Discover habit correlations
+
+---
+
+## 🔒 Privacy-First
+
+100% local processing:
+- ✅ No cloud API calls
+- ✅ No tracking or telemetry
+- ✅ Your habit data stays private
+- ✅ Full AI control
+- ✅ GDPR/HIPAA compliant
+
+---
+
+## 📚 Python API
 
 ```python
-# tests/test_core.py
-import pytest
-from habit_tracker.core import *
+from habit_tracker.core import add_habit, log_completion
+from habit_tracker.analytics import get_streak, get_correlations
 
-def test_basic_functionality():
-    """Test core function returns expected output."""
-    result = load_config()
-    assert isinstance(result, dict)
-    assert "llm" in result
+# Add a new habit
+habit = add_habit(
+    name="Morning Meditation",
+    category="health",
+    target_days=365
+)
+
+# Log completion
+log_completion(habit_id=habit['id'])
+
+# Get streak info
+streak_info = get_streak(habit_id=habit['id'])
+print(f"Current streak: {streak_info['days']} days")
+
+# Find correlated habits
+correlations = get_correlations(habit_id=habit['id'])
+print(f"Related habits: {correlations}")
 ```
-
----
-
-## 🔒 Local vs Cloud
-
-| Feature | Habit Tracker Analyzer | Cloud Alternatives |
-|---------|---------|-------------------|
-| **Privacy** | ✅ 100% local — data never leaves your machine | ❌ Data sent to third-party servers |
-| **Cost** | ✅ Free forever — no API keys needed | ❌ $10-50/month subscription fees |
-| **Speed** | ✅ No network latency — instant responses | ❌ 500ms-2s API round-trip delay |
-| **Offline** | ✅ Works without internet connection | ❌ Requires constant internet access |
-| **Customization** | ✅ Full source code control | ❌ Limited by provider's API |
-| **Data Ownership** | ✅ Your machine, your data, your rules | ❌ Stored on corporate servers |
-| **Model Choice** | ✅ Swap models freely (Gemma, Llama, Mistral) | ❌ Locked to provider's model |
-| **Compliance** | ✅ GDPR/HIPAA friendly — no data transfer | ❌ May violate data regulations |
-
----
-
-## 🔧 Troubleshooting
-
-<details>
-<summary><strong>Ollama not connecting</strong></summary>
-
-```bash
-# Check if Ollama is running
-curl http://localhost:11434/api/tags
-
-# Start Ollama if needed
-ollama serve
-
-# Verify model is available
-ollama list
-```
-
-</details>
-
-<details>
-<summary><strong>Model not found</strong></summary>
-
-```bash
-# Pull the required model
-ollama pull gemma3
-
-# Or use a different model — update config.yaml:
-# llm:
-#   model: "llama3"
-```
-
-</details>
-
-<details>
-<summary><strong>Import errors</strong></summary>
-
-```bash
-# Ensure you're in the project root
-cd 68-habit-tracker-analyzer
-
-# Reinstall dependencies
-pip install -r requirements.txt
-
-# Verify the package is importable
-python -c "from habit_tracker.core import *; print('OK')"
-```
-
-</details>
-
-<details>
-<summary><strong>Slow responses</strong></summary>
-
-The first request may take longer as the model loads into memory. Subsequent requests will be much faster. For better performance:
-
-- Use a smaller model: `ollama pull gemma3:2b`
-- Ensure sufficient RAM (8GB+ recommended)
-- Use GPU acceleration if available
-
-</details>
-
----
-
-## ❓ FAQ
-
-<details>
-<summary><strong>What achievements can I earn?</strong></summary>
-
-6 achievements: First Step 🌱 (first log), Week Warrior 🔥 (7-day streak), Monthly Master ⭐ (30-day streak), Century Club 💯 (100-day streak), Perfect Week 🏆 (all habits 7 days), Consistency King 👑 (90%+ for 30 days).
-
-</details>
-
-<details>
-<summary><strong>How are correlations calculated?</strong></summary>
-
-The system checks which habits are completed on the same day using combinatorial pair analysis. Co-occurrence rate = (days both done / total tracked days) × 100.
-
-</details>
-
-<details>
-<summary><strong>How does streak tracking work?</strong></summary>
-
-Current streak counts backwards from today. Best streak uses a sweep across all logged dates. Both are computed per-habit independently.
-
-</details>
-
-<details>
-<summary><strong>Can I track non-daily habits?</strong></summary>
-
-Yes! Set target to 'weekly' or custom. The system is flexible — log_habit() records completions regardless of target frequency.
-
-</details>
-
-<details>
-<summary><strong>How does AI analysis help?</strong></summary>
-
-The AI analyzes streaks, rates, and correlations to provide behavioral insights, habit stacking suggestions, and personalized improvement tips.
-
-</details>
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Add more AI model support (Phi-3, CodeGemma)
-- [ ] Docker containerization for easy deployment
-- [ ] Plugin system for custom extensions
-- [ ] REST API endpoint for programmatic access
-- [ ] Enhanced web UI with data visualizations
-- [ ] Multi-language support (i18n)
-- [ ] Automated backup and restore
-- [ ] CI/CD pipeline with GitHub Actions
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **Commit** your changes: `git commit -m 'Add amazing feature'`
-4. **Push** to the branch: `git push origin feature/amazing-feature`
-5. **Open** a Pull Request
-
-### Development Setup
-
-```bash
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/habit-tracker-analyzer.git
-cd habit-tracker-analyzer
-
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate
-
-# Install dev dependencies
-pip install -r requirements.txt
-pip install pytest pytest-cov black ruff
-
-# Run linting
-ruff check src/
-black --check src/
-
-# Run tests before submitting
-pytest tests/ -v --cov=habit_tracker
-```
-
-### Code Style
-
-- Follow PEP 8 conventions
-- Use type hints for all function signatures
-- Write docstrings for all public functions
-- Keep functions focused and under 50 lines
-- Add tests for all new features
-
----
-
-## 🌟 Star History
-
-If you find this project useful, please consider giving it a star ⭐ on GitHub!
+1. Fork the repository
+2. Create feature branch: git checkout -b feature/amazing-feature
+3. Commit changes: git commit -m 'Add amazing feature'
+4. Push to branch: git push origin feature/amazing-feature
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-```
-MIT License
+---
 
-Copyright (c) 2024 kennedyraju55
+## 👤 Author
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software.
-```
+**Nrk Raju Guthikonda**
+- GitHub: [@kennedyraju55](https://github.com/kennedyraju55)
+- Dev.to: [@kennedyraju55](https://dev.to/kennedyraju55)
+- LinkedIn: [Nrk Raju Guthikonda](https://linkedin.com/in/nrk-raju-guthikonda)
 
 ---
 
 <div align="center">
 
-**Part of [90 Local LLM Projects](https://github.com/kennedyraju55/90-local-llm-projects)** — Building the future of private, local AI applications.
+**Made with ❤️ by kennedyraju55**
 
-🎯 **Project 68 of 90** — Made with ❤️ and local AI
-
-[![Back to Main](https://img.shields.io/badge/← Back_to-90_Projects-e63946.svg?style=for-the-badge)](https://github.com/kennedyraju55/90-local-llm-projects)
+[⭐ Star this repo if you found it helpful!](https://github.com/kennedyraju55/habit-tracker-analyzer)
 
 </div>
